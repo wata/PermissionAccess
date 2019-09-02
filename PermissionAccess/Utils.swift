@@ -65,17 +65,19 @@ extension UserDefaults {
 }
 
 class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
-    let currentStatus = CLLocationManager.authorizationStatus()
     let statusHandler: () -> Void
 
     init(statusHandler: @escaping () -> Void) {
         self.statusHandler = statusHandler
     }
 
+    var currentStatus = CLLocationManager.authorizationStatus()
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // `didChangeAuthorizationStatus` is called once when the `CLLocationManager` is initialized.
         // https://stackoverflow.com/a/30107511/11226828
         guard status != currentStatus else { return }
+        currentStatus = status
         NotificationCenter.default.post(name: .locationPermissionStatusChanged, object: nil)
         statusHandler()
     }
