@@ -32,7 +32,9 @@ public struct PermissionAccess {
         return type.permission.request { (isAuthorized) in
             if !isAuthorized, presentDeniedAlert {
                 presentDeniedAlertController(permissionName: type.permission.name, handler: handler)
-            } else {
+                return
+            }
+            DispatchQueue.main.async {
                 handler?(isAuthorized)
             }
         }
