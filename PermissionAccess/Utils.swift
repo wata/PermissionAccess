@@ -64,6 +64,14 @@ extension UserDefaults {
     }
 }
 
+extension OperationQueue {
+    static let background: OperationQueue = {
+        let queue = OperationQueue()
+        queue.qualityOfService = .background
+        return queue
+    }()
+}
+
 class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
     let statusHandler: () -> Void
 

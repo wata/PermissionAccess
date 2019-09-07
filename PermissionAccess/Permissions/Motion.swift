@@ -22,7 +22,7 @@ struct Motion: Permission {
         let semaphore = DispatchSemaphore(value: 0)
         var status: PermissionStatus = .notDetermined
         let now = Date()
-        motionActivityManager.queryActivityStarting(from: now, to: now, to: .main) { (_, error) in
+        motionActivityManager.queryActivityStarting(from: now, to: now, to: .background) { (_, error) in
             motionActivityManager.stopActivityUpdates()
             defer { semaphore.signal() }
             if let error = error, error._code == Int(CMErrorMotionActivityNotAuthorized.rawValue) {
