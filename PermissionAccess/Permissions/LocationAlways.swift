@@ -40,10 +40,12 @@ struct LocationAlways: Permission {
         let currentStatus = status
         switch currentStatus {
         case .notDetermined:
-            defer { locationManager.requestAlwaysAuthorization() }
-            guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else { return }
             UserDefaults.standard.requestedLocationAlwaysWithWhenInUse = true
-            setupApplicationObserver(handler: handler)
+            if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                // Prepare for the escalation request.
+                setupApplicationObserver(handler: handler)
+            }
+            locationManager.requestAlwaysAuthorization()
         default:
             handler?(currentStatus.isAuthorized)
         }
