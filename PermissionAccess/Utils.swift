@@ -73,13 +73,12 @@ extension OperationQueue {
 }
 
 class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
-    let statusHandler: () -> Void
+    private var statusHandler: (() -> Void)?
+    private var currentStatus = CLLocationManager.authorizationStatus()
 
     init(statusHandler: @escaping () -> Void) {
         self.statusHandler = statusHandler
     }
-
-    var currentStatus = CLLocationManager.authorizationStatus()
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // `didChangeAuthorizationStatus` is called once when the `CLLocationManager` is initialized.
@@ -87,7 +86,8 @@ class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
         guard status != currentStatus else { return }
         currentStatus = status
         NotificationCenter.default.post(name: .locationPermissionStatusChanged, object: nil)
-        statusHandler()
+        statusHandler?()
+        statusHandler = nil
     }
 }
 
