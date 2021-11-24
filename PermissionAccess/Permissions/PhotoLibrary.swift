@@ -10,8 +10,8 @@ import Foundation
 import Photos
 
 struct PhotoLibrary: Permission {
-    static let name: String = "\(PhotoLibrary.self)"
-    static let usageDescription: String? = Bundle.main.object(forInfoDictionaryKey: "NSPhotoLibraryUsageDescription") as? String
+    static let name = "\(PhotoLibrary.self)"
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSPhotoLibraryUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch PHPhotoLibrary.authorizationStatus() {

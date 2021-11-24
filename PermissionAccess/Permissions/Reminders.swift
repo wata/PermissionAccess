@@ -7,16 +7,28 @@
 //
 
 import Foundation
+import EventKit
 
 struct Reminders: Permission {
-    static let name: String = "\(Reminders.self)"
+    static let name = "\(Reminders.self)"
     static let usageDescription: String? = nil
 
     static var status: PermissionStatus {
-        fatalError("Not Implemented.")
+        switch EKEventStore.authorizationStatus(for: .reminder) {
+        case .authorized: return .authorized
+        case .notDetermined: return .notDetermined
+        case .restricted, .denied: return .denied
+        @unknown default: fatalError("Unknown status")
+        }
     }
 
     static func request(handler: PermissionHandler?) {
-        fatalError("Not Implemented.")
+        let currentStatus = status
+        switch currentStatus {
+        case .notDetermined:
+            EKEventStore().requestAccess(to: .reminder) { isAuthorized, _ in handler?(isAuthorized) }
+        default:
+            handler?(currentStatus.isAuthorized)
+        }
     }
 }

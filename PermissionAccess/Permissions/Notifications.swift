@@ -10,7 +10,7 @@ import Foundation
 import UserNotifications
 
 struct Notifications: Permission {
-    static let name: String = "\(Notification.self)"
+    static let name = "\(Notification.self)"
     static let usageDescription: String? = nil
 
     static var options: UNAuthorizationOptions = []

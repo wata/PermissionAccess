@@ -12,7 +12,7 @@ import CoreMotion
 fileprivate let motionActivityManager = CMMotionActivityManager()
 
 struct Motion: Permission {
-    static let name: String = "\(Motion.self)"
+    static let name = "\(Motion.self)"
     static let usageDescription: String? = nil
 
     static var status: PermissionStatus {

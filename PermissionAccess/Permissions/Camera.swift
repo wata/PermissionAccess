@@ -10,8 +10,8 @@ import Foundation
 import AVFoundation
 
 struct Camera: Permission {
-    static let name: String = "\(Camera.self)"
-    static let usageDescription: String? = Bundle.main.object(forInfoDictionaryKey: "NSCameraUsageDescription") as? String
+    static let name = "\(Camera.self)"
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSCameraUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch AVCaptureDevice.authorizationStatus(for: .video) {

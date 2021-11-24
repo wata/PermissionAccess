@@ -10,7 +10,7 @@ import Foundation
 import Contacts
 
 struct Contacts: Permission {
-    static let name: String = "\(Contacts.self)"
+    static let name = "\(Contacts.self)"
     static let usageDescription: String? = nil
 
     static var status: PermissionStatus {

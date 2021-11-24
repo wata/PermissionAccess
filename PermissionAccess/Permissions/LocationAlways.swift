@@ -16,8 +16,8 @@ fileprivate var becomeActiveObserver: NSObjectProtocol!
 fileprivate var requestingAuthorization = false
 
 struct LocationAlways: Permission {
-    static let name: String = "\(LocationAlways.self)"
-    static let usageDescription: String? = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription") as? String
+    static let name = "\(LocationAlways.self)"
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch CLLocationManager.authorizationStatus() {

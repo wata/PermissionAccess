@@ -7,16 +7,28 @@
 //
 
 import Foundation
+import EventKit
 
 struct Events: Permission {
-    static let name: String = "\(Events.self)"
+    static let name = "\(Events.self)"
     static let usageDescription: String? = nil
 
     static var status: PermissionStatus {
-        fatalError("Not Implemented.")
+        switch EKEventStore.authorizationStatus(for: .event) {
+        case .authorized: return .authorized
+        case .notDetermined: return .notDetermined
+        case .restricted, .denied: return .denied
+        @unknown default: fatalError("Unknown status")
+        }
     }
 
     static func request(handler: PermissionHandler?) {
-        fatalError("Not Implemented.")
+        let currentStatus = status
+        switch currentStatus {
+        case .notDetermined:
+            EKEventStore().requestAccess(to: .event) { isAuthorized, _ in handler?(isAuthorized) }
+        default:
+            handler?(currentStatus.isAuthorized)
+        }
     }
 }

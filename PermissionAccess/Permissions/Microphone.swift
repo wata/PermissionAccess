@@ -10,8 +10,8 @@ import Foundation
 import AVFoundation
 
 struct Microphone: Permission {
-    static let name: String = "\(Microphone.self)"
-    static let usageDescription: String? = Bundle.main.object(forInfoDictionaryKey: "NSMicrophoneUsageDescription") as? String
+    static let name = "\(Microphone.self)"
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSMicrophoneUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch AVCaptureDevice.authorizationStatus(for: .audio) {

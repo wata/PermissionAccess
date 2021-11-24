@@ -10,8 +10,8 @@ import Foundation
 import Speech
 
 struct SpeechRecognition: Permission {
-    static let name: String = "\(SpeechRecognition.self)"
-    static let usageDescription: String? = Bundle.main.object(forInfoDictionaryKey: "NSSpeechRecognitionUsageDescription") as? String
+    static let name = "\(SpeechRecognition.self)"
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSSpeechRecognitionUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch SFSpeechRecognizer.authorizationStatus() {

@@ -9,7 +9,7 @@
 import Foundation
 
 struct Bluetooth: Permission {
-    static let name: String = "\(Bluetooth.self)"
+    static let name = "\(Bluetooth.self)"
     static let usageDescription: String? = nil
 
     static var status: PermissionStatus {

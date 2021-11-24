@@ -13,8 +13,8 @@ fileprivate let locationManager = CLLocationManager()
 fileprivate var delegate: LocationManagerDelegate!
 
 struct LocationWhenInUse: Permission {
-    static let name: String = "\(LocationWhenInUse.self)"
-    static let usageDescription: String? = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription") as? String
+    static let name = "\(LocationWhenInUse.self)"
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch CLLocationManager.authorizationStatus() {

@@ -6,17 +6,17 @@ A unified API to ask for permissions on iOS.
 - [ ] Bluetooth
 - [x] Camera
 - [x] Contacts
-- [ ] Events
+- [x] Events
 - [x] Motion
 - [x] Microphone
 - [x] Notifications
 - [x] PhotoLibrary
-- [ ] Reminders
+- [x] Reminders
 - [x] LocationAlways
 - [x] LocationWhenInUse
 - [x] MediaLibrary
 - [x] SpeechRecognizer
-- [ ] Siri
+- [x] Siri
 
 ## Usage
 

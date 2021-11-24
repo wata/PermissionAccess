@@ -9,8 +9,8 @@
 import Foundation
 
 struct MediaLibrary: Permission {
-    static let name: String = "\(MediaLibrary.self)"
-    static let usageDescription: String? = Bundle.main.object(forInfoDictionaryKey: "NSAppleMusicUsageDescription") as? String
+    static let name = "\(MediaLibrary.self)"
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSAppleMusicUsageDescription") as? String
 
     static var status: PermissionStatus {
         fatalError("Not Implemented.")
