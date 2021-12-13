@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_LOCATION
 import CoreLocation
 
 fileprivate let locationManager = CLLocationManager()
@@ -47,3 +47,4 @@ struct LocationWhenInUse: Permission {
         locationManager.delegate = delegate
     }
 }
+#endif

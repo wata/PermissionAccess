@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_CAMERA
 import AVFoundation
 
 struct Camera: Permission {
@@ -37,3 +37,4 @@ struct Camera: Permission {
         }
     }
 }
+#endif

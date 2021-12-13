@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_REMINDERS
 import EventKit
 
 struct Reminders: Permission {
@@ -32,3 +32,4 @@ struct Reminders: Permission {
         }
     }
 }
+#endif

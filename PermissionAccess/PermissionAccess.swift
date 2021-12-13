@@ -21,15 +21,15 @@ public struct PermissionAccess {
     private init() {}
 
     public static func hasPermission(_ type: PermissionType) -> Bool {
-        return type.permission.status.isAuthorized
+        type.permission.status.isAuthorized
     }
 
     public static func status(_ type: PermissionType) -> PermissionStatus {
-        return type.permission.status
+        type.permission.status
     }
 
     public static func request(_ type: PermissionType, presentDeniedAlert: Bool = false, handler: PermissionHandler? = nil) {
-        return type.permission.request { (isAuthorized) in
+        type.permission.request { (isAuthorized) in
             if !isAuthorized, presentDeniedAlert {
                 presentDeniedAlertController(permissionName: type.permission.name, handler: handler)
                 return

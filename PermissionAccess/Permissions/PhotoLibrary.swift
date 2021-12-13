@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_PHOTO_LIBRARY
 import Photos
 
 struct PhotoLibrary: Permission {
@@ -37,3 +37,4 @@ struct PhotoLibrary: Permission {
         }
     }
 }
+#endif

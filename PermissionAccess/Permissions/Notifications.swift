@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_NOTIFICATIONS
 import UserNotifications
 
 struct Notifications: Permission {
@@ -45,3 +45,4 @@ struct Notifications: Permission {
         }
     }
 }
+#endif

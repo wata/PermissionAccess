@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_EVENTS
 import EventKit
 
 struct Events: Permission {
@@ -32,3 +32,4 @@ struct Events: Permission {
         }
     }
 }
+#endif

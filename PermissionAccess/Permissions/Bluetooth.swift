@@ -6,6 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
+#if PERMISSION_BLUETOOTH
 import Foundation
 
 struct Bluetooth: Permission {
@@ -20,3 +21,4 @@ struct Bluetooth: Permission {
         fatalError("Not Implemented.")
     }
 }
+#endif

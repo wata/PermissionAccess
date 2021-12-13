@@ -16,7 +16,7 @@ A unified API to ask for permissions on iOS.
 - [x] Reminders
 - [x] Siri
 - [x] SpeechRecognizer
-- [x] MediaLibrary
+- [ ] MediaLibrary
 
 ## Usage
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_SPEECH_RECOGNITION
 import Speech
 
 struct SpeechRecognition: Permission {
@@ -37,3 +37,4 @@ struct SpeechRecognition: Permission {
         }
     }
 }
+#endif

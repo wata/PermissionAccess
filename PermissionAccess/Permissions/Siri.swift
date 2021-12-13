@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_SIRI
 import Intents
 
 struct Siri: Permission {
@@ -37,3 +37,4 @@ struct Siri: Permission {
         }
     }
 }
+#endif

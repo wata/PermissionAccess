@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
-import Foundation
+#if PERMISSION_MOTION
 import CoreMotion
 
 fileprivate let motionActivityManager = CMMotionActivityManager()
@@ -50,3 +50,4 @@ struct Motion: Permission {
         }
     }
 }
+#endif

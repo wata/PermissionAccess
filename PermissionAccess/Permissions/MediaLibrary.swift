@@ -6,6 +6,7 @@
 //  Copyright © 2019 Wataru Nagasawa. All rights reserved.
 //
 
+#if PERMISSION_MEDIA_LIBRARY
 import Foundation
 
 struct MediaLibrary: Permission {
@@ -25,3 +26,4 @@ struct MediaLibrary: Permission {
         fatalError("Not Implemented.")
     }
 }
+#endif
