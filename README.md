@@ -7,16 +7,16 @@ A unified API to ask for permissions on iOS.
 - [x] Camera
 - [x] Contacts
 - [x] Events
-- [x] Motion
+- [x] LocationAlways
+- [x] LocationWhenInUse
 - [x] Microphone
+- [x] Motion
 - [x] Notifications
 - [x] PhotoLibrary
 - [x] Reminders
-- [x] LocationAlways
-- [x] LocationWhenInUse
-- [x] MediaLibrary
-- [x] SpeechRecognizer
 - [x] Siri
+- [x] SpeechRecognizer
+- [x] MediaLibrary
 
 ## Usage
 
