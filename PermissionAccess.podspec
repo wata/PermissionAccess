@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "PermissionAccess"
-  s.version       = "0.1.0"
+  s.version       = "0.1.1"
   s.summary       = "A unified API to ask for permissions on iOS."
   s.homepage      = "https://github.com/wata/PermissionAccess"
   s.license       = { :type => "MIT", :file => "LICENSE" }
