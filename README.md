@@ -1,4 +1,7 @@
 # PermissionAccess
+
+[![Version](https://img.shields.io/cocoapods/v/PermissionAccess.svg)](http://cocoadocs.org/docsets/PermissionAccess)
+
 A unified API to ask for permissions on iOS.
 
 ## Supported Permissions
