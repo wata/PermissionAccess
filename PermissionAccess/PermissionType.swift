@@ -44,7 +44,7 @@ public enum PermissionType {
     #if PERMISSION_MEDIA_LIBRARY
     case mediaLibrary
     #endif
-    #if PERMISSION_SPEECH_RECOGNIZER
+    #if PERMISSION_SPEECH_RECOGNITION
     case speechRecognizer
     #endif
     #if PERMISSION_SIRI
@@ -87,7 +87,7 @@ public enum PermissionType {
         #if PERMISSION_MEDIA_LIBRARY
         case .mediaLibrary: return MediaLibrary.self
         #endif
-        #if PERMISSION_SPEECH_RECOGNIZER
+        #if PERMISSION_SPEECH_RECOGNITION
         case .speechRecognizer: return SpeechRecognition.self
         #endif
         #if PERMISSION_SIRI

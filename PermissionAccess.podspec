@@ -70,9 +70,9 @@ Pod::Spec.new do |s|
     ss.pod_target_xcconfig = { "SWIFT_ACTIVE_COMPILATION_CONDITIONS" => "PERMISSION_SIRI" }
   end
 
-  s.subspec 'SpeechRecognizer' do |ss|
+  s.subspec 'SpeechRecognition' do |ss|
     ss.dependency 'PermissionAccess/Core'
-    ss.pod_target_xcconfig = { "SWIFT_ACTIVE_COMPILATION_CONDITIONS" => "PERMISSION_SPEECH_RECOGNIZER" }
+    ss.pod_target_xcconfig = { "SWIFT_ACTIVE_COMPILATION_CONDITIONS" => "PERMISSION_SPEECH_RECOGNITION" }
   end
 
   s.subspec 'MediaLibrary' do |ss|
