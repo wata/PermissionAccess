@@ -11,7 +11,7 @@ import Contacts
 
 struct Contacts: Permission {
     static let name = "\(Contacts.self)"
-    static let usageDescription: String? = nil
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSContactsUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch CNContactStore.authorizationStatus(for: .contacts) {
@@ -23,6 +23,11 @@ struct Contacts: Permission {
     }
 
     static func request(handler: PermissionHandler?) {
+        guard let _ = usageDescription else {
+            print("Missing \(name) usage description string in Info.plist")
+            return
+        }
+
         let currentStatus = status
         switch currentStatus {
         case .notDetermined:

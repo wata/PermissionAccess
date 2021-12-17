@@ -11,7 +11,7 @@ import EventKit
 
 struct Events: Permission {
     static let name = "\(Events.self)"
-    static let usageDescription: String? = nil
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSCalendarsUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch EKEventStore.authorizationStatus(for: .event) {
@@ -23,6 +23,11 @@ struct Events: Permission {
     }
 
     static func request(handler: PermissionHandler?) {
+        guard let _ = usageDescription else {
+            print("Missing \(name) usage description string in Info.plist")
+            return
+        }
+
         let currentStatus = status
         switch currentStatus {
         case .notDetermined:

@@ -13,7 +13,7 @@ fileprivate let motionActivityManager = CMMotionActivityManager()
 
 struct Motion: Permission {
     static let name = "\(Motion.self)"
-    static let usageDescription: String? = nil
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSMotionUsageDescription") as? String
 
     static var status: PermissionStatus {
         guard UserDefaults.standard.requestedMotion else {
@@ -36,6 +36,11 @@ struct Motion: Permission {
     }
 
     static func request(handler: PermissionHandler?) {
+        guard let _ = usageDescription else {
+            print("Missing \(name) usage description string in Info.plist")
+            return
+        }
+
         UserDefaults.standard.requestedMotion = true
         let now = Date()
         motionActivityManager.queryActivityStarting(from: now, to: now, to: .main) { (_, error) in

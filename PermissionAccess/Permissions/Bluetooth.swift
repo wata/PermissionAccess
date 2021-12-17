@@ -11,7 +11,7 @@ import Foundation
 
 struct Bluetooth: Permission {
     static let name = "\(Bluetooth.self)"
-    static let usageDescription: String? = nil
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSBluetoothAlwaysUsageDescription") as? String
 
     static var status: PermissionStatus {
         fatalError("Not Implemented.")

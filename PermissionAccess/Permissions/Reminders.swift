@@ -11,7 +11,7 @@ import EventKit
 
 struct Reminders: Permission {
     static let name = "\(Reminders.self)"
-    static let usageDescription: String? = nil
+    static let usageDescription = Bundle.main.object(forInfoDictionaryKey: "NSRemindersUsageDescription") as? String
 
     static var status: PermissionStatus {
         switch EKEventStore.authorizationStatus(for: .reminder) {
@@ -23,6 +23,11 @@ struct Reminders: Permission {
     }
 
     static func request(handler: PermissionHandler?) {
+        guard let _ = usageDescription else {
+            print("Missing \(name) usage description string in Info.plist")
+            return
+        }
+
         let currentStatus = status
         switch currentStatus {
         case .notDetermined:
